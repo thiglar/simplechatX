@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#3f91b1">
+        <title>{{  chat_id  }} - simplechatX</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/chat.css') }}">
+    </head>
+
+    <body>
+        <div id="myDialog" class="dialog">
+            <div class="dialog-content">
+                <h3>Alert</h3>
+                <p>Log in first to access '{{  chat_id  }}' room</p>
+                <br>
+                <div class="hcontainer">
+                    <label for="inputUsername"></label><input id="inputUsername" class="text-input" type="text" placeholder="Username">
+                </div>
+                <br><br>
+                <div class="align-right">
+                    <button class="button text" id="btnLogin">
+                        login
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <noscript>
+            <div id="x" class="dialog visible">
+                <div class="dialog-content">
+                    <br>
+                    <p>You need to enable JavaScript to run this app.</p>
+                    <p>Instead, use our non JavaScript version or native app on Android.</p>
+                    <br><br>
+                    <div class="align-right">
+                        <a href="#x" class="button text click" id="btnOk">
+                            CLOSE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </noscript>
+
+        <div class="chat container">
+            <div class="header">
+                <div class="header-text">
+                    <p class="title">{{  chat_id  }}</p>
+                </div>
+
+                <button id="btnOptions" class="icon-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
+                </button>
+            </div>
+
+            <div class="messages-list"></div>
+
+            <div class="box">
+                <div class="text-box">
+                    <input id="inputTextMessage" class="text-input" type="text" placeholder="Enter your message...">
+                </div>
+
+                <button class="send-button ripple" id="btnSendMessage">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            let room_id = "{{  chat_id  }}";
+        </script>
+        <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+    </body>
+
+</html>
